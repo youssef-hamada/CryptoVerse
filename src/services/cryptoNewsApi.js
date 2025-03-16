@@ -5,13 +5,13 @@ const cryptoNewsApiHeaders = {
   "x-rapidapi-host": "news-api14.p.rapidapi.com",
 };
 
-const baseUrl = "https://news-api14.p.rapidapi.com";
+const baseUrl = "https://news-api14.p.rapidapi.com/v2/trendings";
 export const cryptoNewsApi = createApi({
   reducerPath: "cryptoNewsApi",
-  baseQuery: fetchBaseQuery({ baseUrl }),
+  baseQuery: fetchBaseQuery({ baseUrl, headers: cryptoNewsApiHeaders }),
   endpoints: (builder) => ({
     getCryptoNews: builder.query({
-      query: () => "/trendings?topic=cryptocurrency&language=en&country=us",
+      query: () => "?topic=cryptocurrency&language=en&country=us",
     }),
   }),
 });
